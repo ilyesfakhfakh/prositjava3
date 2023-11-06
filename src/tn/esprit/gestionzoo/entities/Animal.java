@@ -10,7 +10,7 @@ public sealed class Animal permits Aquatic, Terrestrial {
     public Animal() {
     }
 
-    public Animal(String family, String name, int age, boolean isMammal) {
+    public Animal(String family, String name, int age, boolean isMammal)  {
         this.family = family;
         this.name = name;
         this.age = age;
@@ -38,9 +38,9 @@ public sealed class Animal permits Aquatic, Terrestrial {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(int age) throws InvalidAgeException{
         if (age < 0)
-            System.out.println("The age must a positive number");
+           throw new  InvalidAgeException("The age must a positive number");
         else
             this.age = age;
     }
