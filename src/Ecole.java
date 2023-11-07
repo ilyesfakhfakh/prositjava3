@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 
 /*
@@ -14,6 +15,13 @@ public class Ecole {
     private String nom;
     private Etudiant[] etudiants;
     private int nbr_etudiants;
+=======
+public class Ecole {
+
+    String nom;
+    Etudiant[] etudiants;
+    int nbrEtudiants;
+>>>>>>> 54a8d03d73c38d3c62f56fe04ca00f55722b8da0
 
     public Ecole(String nom) {
         this.nom = nom;
@@ -21,14 +29,21 @@ public class Ecole {
     }
 
     public int rechercherEtudiant(Etudiant e) {
+<<<<<<< HEAD
         for (int i = 0; i < nbr_etudiants; i++) {
             if (etudiants[i].equals(e)) {
                 return i;
             }
+=======
+        for (int i = 0; i < nbrEtudiants; i++) {
+            if (etudiants[i].equals(e))
+                return i;
+>>>>>>> 54a8d03d73c38d3c62f56fe04ca00f55722b8da0
         }
         return -1;
     }
 
+<<<<<<< HEAD
     public void ajouterEtudiant(Etudiant e) throws EtudiantExisteException {
         if (rechercherEtudiant(e) == -1) {
             etudiants[nbr_etudiants] = e;
@@ -88,5 +103,38 @@ public class Ecole {
         } else {
             System.out.println("Cet étudiant n'éxiste pas");
         }
+=======
+    public void ajouterEtudiant(Etudiant e) {
+        if (rechercherEtudiant(e) == -1 && nbrEtudiants < 500) {
+            etudiants[nbrEtudiants] = e;
+            nbrEtudiants++;
+        } else {
+            System.out.println("L'étudiant est déjà inscrit ou L'ecole est pleine");
+        }
+    }
+
+    public float getMoyenne3A(){
+        int nbrEtudiants3A = 0;
+        float sommeMoyenne = 0;
+        for (int i = 0; i < nbrEtudiants; i++) {
+            if(etudiants[i] instanceof Etudiant3eme){
+                nbrEtudiants3A++;
+                sommeMoyenne += etudiants[i].moyenne;
+            }
+        }
+        return sommeMoyenne / nbrEtudiants3A;
+    }
+
+    public int moyenneSalaireAlternance(){
+        int nbrEtudiantsAL = 0;
+        int sommeSalaire = 0;
+        for (int i = 0; i < nbrEtudiants; i++) {
+            if(etudiants[i] instanceof EtudiantAlternance etudiantAlternance){
+                nbrEtudiantsAL++;
+                sommeSalaire += etudiantAlternance.salaire;
+            }
+        }
+        return sommeSalaire / nbrEtudiantsAL;
+>>>>>>> 54a8d03d73c38d3c62f56fe04ca00f55722b8da0
     }
 }
